@@ -1,30 +1,37 @@
 {
-	"expo": {
-		"name": "quran-app",
-		"slug": "quran-app",
-		"scheme": "quran-app",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"userInterfaceStyle": "light",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			}
-		},
-		"web": {
-			"bundleer": "metro",
-			"favicon": "./assets/favicon.png"
-		}
-	}
+  "expo": {
+    "name": "quran-app",
+    "slug": "quran-app",
+    "scheme": "quran-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo/App Logo@512.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.xelopsys.quranapp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo/App Logo@1024.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.xelopsys.quranapp"
+    },
+    "web": {
+      "bundleer": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6d6e7058-fd4c-414e-9f83-ad8d3e348400"
+      }
+    }
+  }
 }

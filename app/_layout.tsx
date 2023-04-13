@@ -11,8 +11,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Constants from 'expo-constants';
 import { persistor, store } from 'context';
-import tw from 'tailwind';
-import { t } from 'i18n';
 
 LogBox.ignoreAllLogs();
 
@@ -30,12 +28,12 @@ export const unstable_settings = {
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     // eslint-disable-next-line global-require
-    Inter: require('../assets/fonts/Inter-Regular.ttf'),
-    InterLight: require('../assets/fonts/Inter-Light.ttf'),
-    InterMedium: require('../assets/fonts/Inter-Medium.ttf'),
-    InterSemiBold: require('../assets/fonts/Inter-SemiBold.ttf'),
-    InterBold: require('../assets/fonts/Inter-Bold.ttf'),
-    InterExtraBold: require('../assets/fonts/Inter-ExtraBold.ttf'),
+    // Inter: require('../assets/fonts/Inter-Regular.ttf'),
+    // InterLight: require('../assets/fonts/Inter-Light.ttf'),
+    // InterMedium: require('../assets/fonts/Inter-Medium.ttf'),
+    // InterSemiBold: require('../assets/fonts/Inter-SemiBold.ttf'),
+    // InterBold: require('../assets/fonts/Inter-Bold.ttf'),
+    // InterExtraBold: require('../assets/fonts/Inter-ExtraBold.ttf'),
     ...FontAwesome.font,
   });
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -227,8 +225,8 @@ function RootLayoutNav() {
               <Stack.Screen
                 name="kasko-sub"
                 options={{ presentation: 'modal', title: 'Subscription' }}
-              />
-              <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
+              />*/}
+              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
             </Stack>
             <Toast />
           </ThemeProvider>

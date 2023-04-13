@@ -23,22 +23,17 @@ export function useThemeColor(
 type ThemeProps = {
   lightColor?: string;
   darkColor?: string;
-  font?: 'Inter' | 'InterBold' | 'InterMedium' | 'InterExtraBold' | 'InterLight' | 'InterSemiBold';
+  font?: string;
 };
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
 
 export function Text(props: TextProps) {
-  const { style, lightColor, darkColor, font = 'InterLight', ...otherProps } = props;
+  const { style, lightColor, darkColor, font, ...otherProps } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return (
-    <DefaultText
-      style={[{ color }, style, { fontFamily: font, fontWeight: 'bold' }]}
-      {...otherProps}
-    />
-  );
+  return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
 
 Text.defaultProps = {
