@@ -3,6 +3,7 @@ import { FontAwesome, Feather } from '@expo/vector-icons';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Text } from 'components/themed';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SplashScreen, Stack, useRouter } from 'expo-router';
 import { StyleSheet, useColorScheme, TouchableOpacity, LogBox } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -11,6 +12,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Constants from 'expo-constants';
 import { persistor, store } from 'context';
+import tw from 'tailwind';
 
 LogBox.ignoreAllLogs();
 
@@ -22,7 +24,7 @@ export {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '/',
+  initialRouteName: '(tabs)',
 };
 
 export default function RootLayout() {
@@ -61,14 +63,12 @@ function RootLayoutNav() {
             refetchOnWindowFocus: false,
             refetchOnReconnect: false,
             refetchInterval: false,
-            retry: false,
+            retry: true,
             // staleTime: Number.POSITIVE_INFINITY,
           },
         },
       })
   );
-  const router = useRouter();
-
   return (
     <Provider store={store}>
       <PersistGate loading={undefined} persistor={persistor}>
@@ -77,156 +77,43 @@ function RootLayoutNav() {
             <Stack>
               <Stack.Screen
                 name="index"
-                // options={{
-                //   headerShown: false,
-                //   headerStyle: {
-                //     backgroundColor: '#f4511e',
-                //   },
-                // }}
-              />
-              {/* <Stack.Screen
-                name="(auth)/welcome"
                 options={{
                   headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="(auth)/sign-in"
-                options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="(auth)/sign-in-code"
-                options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="(profile)/edit-profile"
-                options={{
-                  headerTitle: `${t('editProfile')}`,
-                  headerTitleStyle: {
-                    color: '#000',
-                  },
-                }}
-              />
-              <Stack.Screen
-                name="(profile)/profile"
-                options={{
-                  headerTitle: `${t('profile')}`,
-                  headerLeft: () => {
-                    return (
-                      <TouchableOpacity
-                        style={tw.style('ml-4')}
-                        onPress={() => {
-                          router.back();
-                        }}
-                      >
-                        <Feather
-                          name="x"
-                          size={24}
-                          color={colorScheme === 'dark' ? '#fff' : '#000'}
-                        />
-                      </TouchableOpacity>
-                    );
-                  },
-                  headerRight: () => {
-                    return (
-                      <TouchableOpacity
-                        style={tw.style('mr-4')}
-                        onPress={() => {
-                          router.push('/(profile)/edit-profile');
-                        }}
-                      >
-                        <Feather
-                          name="edit"
-                          size={24}
-                          color={colorScheme === 'dark' ? '#fff' : '#000'}
-                        />
-                      </TouchableOpacity>
-                    );
-                  },
-                }}
-              />
-              <Stack.Screen
-                name="(settings)"
-                options={{
-                  headerTitle: `${t('settings')}`,
-                  headerLeft: () => {
-                    return (
-                      <TouchableOpacity
-                        style={tw.style('ml-4')}
-                        onPress={() => {
-                          router.push('../');
-                        }}
-                      >
-                        <Feather
-                          name="x"
-                          size={24}
-                          color={colorScheme === 'dark' ? '#fff' : '#000'}
-                        />
-                      </TouchableOpacity>
-                    );
-                  },
-                }}
-              />
-              <Stack.Screen
-                name="(policy)"
-                options={{
                   headerTitleAlign: 'center',
-                  headerTitle: `${t('policy')}`,
-                  headerLeft: () => {
-                    return (
-                      <TouchableOpacity
-                        style={tw.style('ml-4')}
-                        onPress={() => {
-                          router.push('../');
-                        }}
-                      >
-                        <Feather
-                          name="x"
-                          size={24}
-                          color={colorScheme === 'dark' ? '#fff' : '#000'}
-                        />
-                      </TouchableOpacity>
-                    );
-                  },
                 }}
               />
               <Stack.Screen
-                name="(osago)"
+                name="welcome"
                 options={{
-                  headerTitle: `${t('osago')}`,
+                  headerShown: false,
                   headerTitleAlign: 'center',
+                }}
+              />
 
-                  headerLeft: () => {
-                    return (
-                      <TouchableOpacity
-                        style={tw.style('ml-4 flex-row items-center jutsify-center')}
-                        onPress={() => {
-                          router.back();
-                        }}
-                      >
-                        <Feather
-                          name="chevron-left"
-                          size={24}
-                          color={colorScheme === 'dark' ? '#fff' : '#000'}
-                        />
-                        <Text lightColor="#000" darkColor="#fff">
-                          {t('back')}
-                        </Text>
-                      </TouchableOpacity>
-                    );
-                  },
+              <Stack.Screen
+                name="(quran)/surah"
+                redirect={false}
+                options={{
+                  headerShown: false,
+                  headerTitleAlign: 'center',
                 }}
               />
-              <Stack.Screen name="kasko" options={{ presentation: 'modal' }} />
               <Stack.Screen
-                name="kasko-sub"
-                options={{ presentation: 'modal', title: 'Subscription' }}
-              />*/}
+                name="(saved)/saved"
+                options={{
+                  headerShown: false,
+                  headerTitleAlign: 'center',
+                }}
+              />
               <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+              <Stack.Screen
+                name="(tabs)"
+                redirect={false}
+                options={{
+                  headerShown: false,
+                  headerTitleAlign: 'center',
+                }}
+              />
             </Stack>
             <Toast />
           </ThemeProvider>

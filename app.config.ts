@@ -1,25 +1,25 @@
-import { ConfigContext, ExpoConfig } from "expo/config";
+import { ConfigContext, ExpoConfig } from 'expo/config';
 
 const Config = {
-	apiUrl: "http://localhost:3000",
-	clientBackend: "http://localhost:8010/proxy",
+  sura: 'https://quranenc.com/api/v1/translation/sura/english_rwwad',
+  aya: 'https://quranenc.com/api/v1/translation/aya/english_rwwad',
 };
 
-if (process.env.NODE_ENV === "main") {
-	Config.apiUrl = "https://sugurtabozor.uz";
-	Config.clientBackend = "https://netkost.uz";
-} else if (process.env.NODE_ENV === "staging") {
-	Config.apiUrl = "https://staging.sugurtabozor.uz";
-	Config.clientBackend = "https://staging.netkost.uz";
+if (process.env.NODE_ENV === 'main') {
+  Config.sura = 'https://quranenc.com/api/v1/translation/sura/english_rwwad';
+  Config.aya = 'https://quranenc.com/api/v1/translation/aya/english_rwwad';
+} else if (process.env.NODE_ENV === 'staging') {
+  Config.sura = 'https://quranenc.com/api/v1/translation/sura/english_rwwad';
+  Config.aya = 'https://quranenc.com/api/v1/translation/aya/english_rwwad';
 }
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-	const { extra } = config;
-	return {
-		...config,
-		extra: {
-			...extra,
-			...Config,
-		},
-	} as ExpoConfig;
+  const { extra } = config;
+  return {
+    ...config,
+    extra: {
+      ...extra,
+      ...Config,
+    },
+  } as ExpoConfig;
 };

@@ -12,16 +12,15 @@ import {
   persistStore,
 } from 'redux-persist';
 
-import authReducer from '../slice/auth-slice';
+import appReducerSlice from '../slice/app-slice';
 
 const persistConfig = {
-  key: 'root',
-  version: 1,
+  key: 'app',
   storage: AsyncStorage,
 };
 
 export const appReducer = combineReducers({
-  auth: authReducer,
+  app: appReducerSlice,
 });
 
 export type RootState = ReturnType<typeof appReducer>;

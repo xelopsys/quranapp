@@ -1,58 +1,58 @@
 {
-	"cli": {
-		"version": ">= 3.6.1"
-	},
-	"build": {
-		"base": {
-			"node": "16.10.0",
-			"distribution": "store",
-			"android": {
-				"image": "default",
-				"env": {
-					"PLATFORM": "android"
-				},
-				"buildType": "apk"
-			},
-			"ios": {
-				"image": "latest",
-				"env": {
-					"PLATFORM": "ios"
-				}
-			}
-		},
-		"development": {
-			"developmentClient": true,
-			"distribution": "internal",
-			"env": {
-				"ENVIRONMENT": "development"
-			},
-			"android": {
-				"distribution": "internal",
-				"withoutCredentials": true,
-				"buildType": "apk"
-			}
-		},
-		"staging": {
-			"extends": "base",
-			"env": {
-				"ENVIRONMENT": "staging",
-				"NODE_ENV": "staging"
-			},
-			"distribution": "internal",
-			"android": {
-				"buildType": "apk"
-			}
-		},
-		"production": {
-			"developmentClient": false,
-			"distribution": "store",
-			"env": {
-				"ENVIRONMENT": "production",
-				"NODE_ENV": "main"
-			}
-		}
-	},
-	"submit": {
-		"production": {}
-	}
+  "cli": {
+    "version": ">= 3.6.1"
+  },
+  "build": {
+    "base": {
+      "node": "16.10.0",
+      "distribution": "store",
+      "android": {
+        "image": "default",
+        "env": {
+          "PLATFORM": "android"
+        },
+        "buildType": "apk"
+      },
+      "ios": {
+        "image": "latest",
+        "env": {
+          "PLATFORM": "ios"
+        }
+      }
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "ENVIRONMENT": "development"
+      },
+      "android": {
+        "distribution": "internal",
+        "withoutCredentials": true,
+        "buildType": "apk"
+      }
+    },
+    "staging": {
+      "extends": "base",
+      "env": {
+        "ENVIRONMENT": "staging",
+        "NODE_ENV": "staging"
+      },
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "developmentClient": false,
+      "distribution": "store",
+      "env": {
+        "ENVIRONMENT": "production",
+        "NODE_ENV": "main"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
 }

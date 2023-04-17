@@ -20,15 +20,23 @@ module.exports = {
       },
       colors: {
         background: {
-          light: "#fff",
-          DEFAULT: "#F4F6F8"
+          dark: "#040C23",
+          DEFAULT: "#fff"
+        },
+        purple: {
+          extralight: "#F598FA",
+          light: "#994EF8",
+          dark: "#240F4F"
+        },
+        orange: {
+          DEFAULT: "#F9B091"
         },
         primary: {
           light: '#1E57D4',
           DEFAULT: '#1E57D4',
         },
         secondary: {
-          DEFAULT: '#1073DE',
+          DEFAULT: '#8789A3',
         },
         disabled: {
           light: '#C7C7CC',
@@ -81,17 +89,5 @@ module.exports = {
         "4xl": "3rem",
       },
     },
-
-    // container: {
-    //   center: true,
-    //   padding: {
-    //     DEFAULT: '1rem',
-    //     sm: '1.5rem',
-    //     lg: '2rem',
-    //   },
-    // },
-    // fontFamily: {
-    //   body: 'Aeroport',
-    // },
   },
 };

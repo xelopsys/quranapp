@@ -3,5 +3,5 @@ import Constants from 'expo-constants';
 
 const { extra: env } = Constants.expoConfig || {};
 
-export const baseURL = env?.apiUrl || '';
-export const clientBackend = env?.clientBackend || '';
+export const surahUrl = env?.sura || '';
+export const ayatUrl = env?.aya || '';
