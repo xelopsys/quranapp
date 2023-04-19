@@ -5,3 +5,4 @@ const { extra: env } = Constants.expoConfig || {};
 
 export const surahUrl = env?.sura || '';
 export const ayatUrl = env?.aya || '';
+export const audioayah = env?.audioayah || '';

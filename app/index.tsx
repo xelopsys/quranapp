@@ -37,15 +37,6 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    if (user.isFirstTime) {
-      wait(500).then(() => {
-        // navigate to getting started
-        router.push('welcome');
-      });
-    }
-  }, [user]);
-
   return (
     <ScrollView
       contentContainerStyle={[

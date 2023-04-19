@@ -8,21 +8,38 @@
     "icon": "./assets/logo/App Logo@512.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/splash-screen.png",
+      "resizeMode": "cover"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.xelopsys.quranapp"
+      "bundleIdentifier": "com.xelopsys.quranapp",
+      "splash": {
+        "image": "./assets/splash-screen.png",
+        "resizeMode": "cover",
+        "dark": {
+          "image": "./assets/splash-screen.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#040C23"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo/App Logo@1024.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.xelopsys.quranapp"
+      "package": "com.xelopsys.quranapp",
+      "splash": {
+        "image": "./assets/splash-screen.png",
+        "resizeMode": "cover",
+        "dark": {
+          "image": "./assets/splash-screen.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#040C23"
+        }
+      }
     },
     "web": {
       "bundleer": "metro",
